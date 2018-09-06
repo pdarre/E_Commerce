@@ -1,0 +1,34 @@
+﻿@model IEnumerable<E_Commerce.Models.Department>
+
+@{
+    ViewBag.Title = "Departments";
+}
+
+<h3>Departments</h3>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { }, new { @class = "btn waves-effect waves-light btn-small" })
+    
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DepartmentId }, new { @class= "btn waves-effect waves-light btn-small" }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DepartmentId }, new { @class = "btn waves-effect waves-light btn-small" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DepartmentId }, new { @class = "btn waves-effect waves-light btn-small" })
+        </td>
+    </tr>
+}
+
+</table>
